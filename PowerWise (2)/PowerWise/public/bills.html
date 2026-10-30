@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload bill – PowerWise</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/common.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="container page">
+    <header class="page-head">
+      <div>
+        <span class="step">Quick start</span>
+        <h1>Upload your electricity bill</h1>
+        <p class="muted">Choose a photo or a PDF of your bill. PowerWise reads the <strong>units</strong>, <strong>bill amount</strong> and <strong>billing period</strong> for you, you check them, and they are saved to your history. Your file is read inside your browser and is never sent anywhere.</p>
+      </div>
+    </header>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>1. Choose your bill</h3>
+        <label class="dropzone" id="drop" for="file">
+          <span class="dz-icon">📄</span>
+          <strong>Click to choose a file</strong>
+          <span>or drag and drop it here</span>
+          <span class="muted dz-small">JPG, PNG or PDF. You can pick several months at once.</span>
+        </label>
+        <input type="file" id="file" accept="image/*,application/pdf,.pdf" multiple hidden />
+
+        <div class="row" style="margin-top: 14px">
+          <button id="btnSample" class="btn btn-ghost btn-sm" type="button">Try a sample bill</button>
+          <button id="btnSamplePdf" class="btn btn-ghost btn-sm" type="button">Try a sample PDF</button>
+          <button id="btnManual" class="btn btn-ghost btn-sm" type="button">Type a bill myself</button>
+        </div>
+
+        <div id="progressBox" hidden style="margin-top: 18px">
+          <div class="progress"><div class="progress-bar" id="bar"></div></div>
+          <p class="muted" id="status" style="margin-top: 8px"></p>
+        </div>
+        <div id="previewBox" class="preview-box" hidden>
+          <canvas id="preview"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>2. Check what was read <small id="queueInfo"></small></h3>
+        <p class="muted" id="reviewHint">Choose a bill on the left. The numbers PowerWise reads will appear here so you can check them before saving.</p>
+
+        <form id="reviewForm" class="form-stack" hidden>
+          <label class="field">Billing period (as printed)
+            <input type="text" id="f_period" maxlength="80" placeholder="e.g. 01 Sep 2026 to 30 Sep 2026" />
+            <span class="hint" id="h_period"></span>
+          </label>
+          <label class="field">Bill month (used for prediction)
+            <input type="month" id="f_month" required />
+          </label>
+          <div class="two-cols">
+            <label class="field">Units used (kWh)
+              <input type="number" id="f_units" min="0" step="any" required />
+              <span class="hint" id="h_units"></span>
+            </label>
+            <label class="field">Bill amount (₹)
+              <input type="number" id="f_amount" min="0" step="any" />
+              <span class="hint" id="h_amount"></span>
+            </label>
+          </div>
+          <div class="row">
+            <button class="btn btn-primary" type="submit">Save to history</button>
+            <button class="btn btn-ghost" type="button" id="btnSkip">Skip</button>
+          </div>
+          <p id="formMsg" class="error" role="alert" style="margin: 0"></p>
+        </form>
+
+        <details id="rawBox" hidden style="margin-top: 14px">
+          <summary>Show the text that was read</summary>
+          <pre id="rawText" class="raw"></pre>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row" style="justify-content: space-between; margin-bottom: 8px">
+        <h3 style="margin: 0">Your saved bills</h3>
+        <a class="btn btn-primary btn-sm" id="goPredict" href="predict.html">Predict from these bills →</a>
+      </div>
+      <p class="muted" id="coverText" style="margin-bottom: 12px"></p>
+      <div id="chips" class="chips"></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Month</th><th>Units</th><th>Amount</th><th>Billing period</th><th>File</th><th>Added</th><th></th></tr>
+          </thead>
+          <tbody id="billRows"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <div id="foot"></div>
+  <script src="js/billparse.js"></script>
+  <script src="js/bills.js"></script>
+</body>
+</html>

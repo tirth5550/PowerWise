@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – PowerWise</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/common.js"></script>
+</head>
+<body>
+  <div class="auth-wrap">
+    <section class="auth-hero">
+      <a class="brand" href="index.html"><span class="bolt">⚡</span> PowerWise</a>
+      <h1>Know your next electricity bill <span>before it arrives.</span></h1>
+      <p>Log in to predict your usage from past bills, estimate it from your appliances, and keep a history of everything you calculated.</p>
+      <ul>
+        <li>Upload a bill photo or PDF and let PowerWise read it</li>
+        <li>Predict next month's units and bill</li>
+        <li>Estimate usage from your home appliances</li>
+        <li>Set your own tariff rates</li>
+        <li>See everything together on one summary page</li>
+      </ul>
+    </section>
+
+    <section class="auth-side">
+      <div class="card auth-card">
+        <!-- shown when someone is already logged in -->
+        <div id="already" hidden>
+          <h3>You are already logged in</h3>
+          <p class="muted mb">Signed in as <strong id="whoName"></strong>.</p>
+          <div class="form-stack">
+            <a id="continueBtn" class="btn btn-primary full" href="bills.html" style="text-align:center">Continue</a>
+            <button id="switchBtn" class="btn btn-ghost full" type="button">Use a different account</button>
+          </div>
+        </div>
+
+        <div id="authBox">
+          <div class="tabs" role="tablist">
+            <button class="tab active" id="tabLogin" type="button">Login</button>
+            <button class="tab" id="tabRegister" type="button">Create account</button>
+          </div>
+
+          <form id="loginForm" class="form-stack" autocomplete="on">
+            <label class="field">Username
+              <input id="l_user" name="username" autocomplete="username" required autofocus />
+            </label>
+            <label class="field">Password
+              <input id="l_pass" name="password" type="password" autocomplete="current-password" required />
+            </label>
+            <button class="btn btn-primary full" type="submit">Login</button>
+          </form>
+
+          <form id="registerForm" class="form-stack" hidden autocomplete="on">
+            <label class="field">Your name
+              <input id="r_name" name="name" autocomplete="name" maxlength="60" required />
+            </label>
+            <label class="field">Username <span style="font-weight:400">(3–30 letters or numbers)</span>
+              <input id="r_user" name="username" autocomplete="username" maxlength="30" required />
+            </label>
+            <label class="field">Password <span style="font-weight:400">(at least 6 characters)</span>
+              <input id="r_pass" name="password" type="password" autocomplete="new-password" minlength="6" required />
+            </label>
+            <label class="field">Confirm password
+              <input id="r_pass2" type="password" autocomplete="new-password" minlength="6" required />
+            </label>
+            <button class="btn btn-primary full" type="submit">Create account</button>
+          </form>
+
+          <label class="checkline" style="margin-top:14px">
+            <input type="checkbox" id="showPass" /> Show passwords
+          </label>
+          <p id="authError" class="error" role="alert"></p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="js/login.js"></script>
+</body>
+</html>

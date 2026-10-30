@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My history – PowerWise</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/common.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="container page">
+    <header class="page-head">
+      <div>
+        <span class="step">Your activity</span>
+        <h1>My history</h1>
+        <p class="muted">Every time you saved a bill, a prediction, an appliance estimate or a tariff, it is recorded here.</p>
+      </div>
+    </header>
+
+    <div class="grid three" id="counts"></div>
+
+    <div class="card">
+      <div class="row" style="justify-content: space-between; margin-bottom: 14px">
+        <h3 style="margin: 0">Saved entries</h3>
+        <div class="row">
+          <select id="filter" aria-label="Filter" style="width: auto">
+            <option value="all">All types</option>
+            <option value="bill">Uploaded bills</option>
+            <option value="predict">Predictions</option>
+            <option value="appliances">Appliance estimates</option>
+            <option value="tariff">Tariff updates</option>
+          </select>
+          <button id="btnClear" class="btn btn-danger btn-sm" type="button">Clear all</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Type</th><th>What you saved</th><th>When</th><th></th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <div id="foot"></div>
+  <script src="js/history.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predict from past usage – PowerWise</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/common.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="container page">
+    <header class="page-head">
+      <div>
+        <span class="step">Step 1 of 3</span>
+        <h1>Predict from past usage</h1>
+        <p class="muted" id="intro">Enter the units (kWh) from your last 6 monthly bills, oldest first.</p>
+      </div>
+    </header>
+
+    <div id="billNote" class="notice" hidden></div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>Monthly units (kWh)</h3>
+        <div id="historyInputs" class="history-inputs"></div>
+        <div class="row">
+          <button id="btnPredict" class="btn btn-primary" type="button">Predict &amp; save</button>
+          <button id="btnSample" class="btn btn-ghost" type="button">Load sample data</button>
+          <button id="btnReset" class="btn btn-ghost" type="button">Clear</button>
+        </div>
+        <p id="formError" class="error" role="alert"></p>
+      </div>
+
+      <div class="card">
+        <h3>Forecast</h3>
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label" id="nextMonthLabel">Next bill</span>
+            <span class="stat-value" id="predUnits">–</span>
+            <span class="stat-unit">kWh predicted</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Estimated bill</span>
+            <span class="stat-value" id="predBill">–</span>
+            <span class="stat-unit">approx.</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Trend</span>
+            <span class="stat-value" id="predTrend">–</span>
+            <span class="stat-unit" id="predTrendNote">vs last month</span>
+          </div>
+        </div>
+        <div id="billBreakdown" class="breakdown"></div>
+      </div>
+    </div>
+
+    <div class="card chart-card">
+      <h3>Usage history and forecast</h3>
+      <canvas id="chart" height="320"></canvas>
+      <div class="legend">
+        <span><i class="dot dot-hist"></i> Past usage</span>
+        <span><i class="dot dot-pred"></i> Predicted</span>
+        <span><i class="dot dot-line"></i> Trend line</span>
+      </div>
+    </div>
+
+    <div class="page-actions">
+      <span class="muted">Bill uses your tariff rates. <a href="tariff.html">Edit rates</a></span>
+      <a class="btn btn-primary" href="appliances.html">Next: Appliances →</a>
+    </div>
+  </main>
+  <div id="foot"></div>
+  <script src="js/predict.js"></script>
+</body>
+</html>

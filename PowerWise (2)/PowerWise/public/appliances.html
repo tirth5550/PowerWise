@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estimate from your appliances – PowerWise</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/common.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="container page">
+    <header class="page-head">
+      <div>
+        <span class="step">Step 2 of 3</span>
+        <h1>Estimate from your appliances</h1>
+        <p class="muted">Add what you use at home. Watts and hours per day are editable. PowerWise adds it all up for a 30-day month.</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="row add-row">
+        <select id="applPreset" aria-label="Choose appliance"></select>
+        <button id="btnAddAppl" class="btn btn-ghost" type="button">+ Add appliance</button>
+      </div>
+
+      <div class="table-wrap">
+        <table id="applTable">
+          <thead>
+            <tr>
+              <th>Appliance</th>
+              <th>Watts</th>
+              <th>Hours / day</th>
+              <th>Qty</th>
+              <th>kWh / month</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="appl-total">
+        <div>
+          <span class="stat-label">Estimated monthly usage</span>
+          <span><span class="stat-value" id="applUnits">0</span> <span class="stat-unit">kWh</span></span>
+        </div>
+        <div>
+          <span class="stat-label">Estimated bill</span>
+          <span class="stat-value" id="applBill">₹0</span>
+        </div>
+        <div class="row">
+          <button id="btnSave" class="btn btn-primary" type="button">Save estimate</button>
+          <span id="dirty" class="dirty" hidden>Unsaved changes</span>
+        </div>
+      </div>
+      <p id="compareNote" class="note"></p>
+    </div>
+
+    <div class="page-actions">
+      <a class="btn btn-ghost" href="predict.html">← Back: Past usage</a>
+      <a class="btn btn-primary" href="tariff.html">Next: Tariff →</a>
+    </div>
+  </main>
+  <div id="foot"></div>
+  <script src="js/appliances.js"></script>
+</body>
+</html>

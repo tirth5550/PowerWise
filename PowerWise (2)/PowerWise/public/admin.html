@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin – PowerWise</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/common.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="container page">
+    <header class="page-head">
+      <div>
+        <span class="step">Admin only</span>
+        <h1>Admin panel</h1>
+        <p class="muted">See who uses PowerWise and change the colours of the whole website.</p>
+      </div>
+      <div class="row">
+        <span class="muted" id="updated"></span>
+        <button id="btnRefresh" class="btn btn-ghost btn-sm" type="button">Refresh</button>
+      </div>
+    </header>
+
+    <div id="pwWarn" class="notice danger" hidden>
+      <strong>Change the default admin password.</strong> It is still <code>admin123</code>. Use the “Admin password” box at the bottom of this page.
+    </div>
+
+    <div class="grid five" id="stats"></div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>Logins in the last 7 days</h3>
+        <canvas id="chart" class="chart" height="260"></canvas>
+      </div>
+      <div class="card">
+        <h3>Recent logins</h3>
+        <div class="table-wrap">
+          <table style="min-width: 0">
+            <thead><tr><th>Person</th><th>When</th></tr></thead>
+            <tbody id="recent"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb">
+      <h3>All users</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Username</th><th>Logins</th><th>Data added</th><th>Last login</th><th>Joined</th><th>Status</th><th></th></tr>
+          </thead>
+          <tbody id="users"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card mb">
+      <h3>Website colours</h3>
+      <p class="muted mb">Pick a ready-made look or choose your own colours. You can see the change on this page straight away. Press <strong>Save colours</strong> to apply it for every user.</p>
+      <div class="swatches" id="swatches"></div>
+      <div class="color-grid">
+        <label class="field">Main colour (buttons, links)
+          <input type="color" id="c_primary" />
+        </label>
+        <label class="field">Highlight colour
+          <input type="color" id="c_accent" />
+        </label>
+        <label class="field">Page background
+          <input type="color" id="c_bg" />
+        </label>
+        <label class="field">Top banner (start)
+          <input type="color" id="c_hero1" />
+        </label>
+        <label class="field">Top banner (end)
+          <input type="color" id="c_hero2" />
+        </label>
+      </div>
+      <div class="row">
+        <button id="btnSaveTheme" class="btn btn-primary" type="button">Save colours</button>
+        <button id="btnResetTheme" class="btn btn-ghost" type="button">Reset to original</button>
+        <span id="themeMsg" class="ok-msg" style="margin: 0"></span>
+      </div>
+    </div>
+
+    <div class="card" style="max-width: 460px">
+      <h3>Admin password</h3>
+      <form id="pwForm" class="form-stack">
+        <label class="field">Current password
+          <input type="password" id="pw_old" autocomplete="current-password" required />
+        </label>
+        <label class="field">New password (at least 6 characters)
+          <input type="password" id="pw_new" autocomplete="new-password" minlength="6" required />
+        </label>
+        <button class="btn btn-primary" type="submit">Change password</button>
+        <p id="pwMsg" class="error" style="margin: 0"></p>
+      </form>
+    </div>
+  </main>
+  <div id="foot"></div>
+  <script src="js/admin.js"></script>
+</body>
+</html>

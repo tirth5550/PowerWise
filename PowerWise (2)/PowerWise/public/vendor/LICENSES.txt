@@ -1,0 +1,4 @@
+Third-party files bundled so that bill reading works offline:
+- tesseract.js and tesseract.js-core (Apache License 2.0) - https://github.com/naptha/tesseract.js
+- Tesseract language data eng (Apache License 2.0) - https://github.com/naptha/tessdata
+- PDF.js (Apache License 2.0) - https://github.com/mozilla/pdf.js

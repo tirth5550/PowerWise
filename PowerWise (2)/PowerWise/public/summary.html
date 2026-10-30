@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summary – PowerWise</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/common.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="container page">
+    <header class="page-head">
+      <div>
+        <span class="step">All calculations</span>
+        <h1>Summary</h1>
+        <p class="muted">Your forecast, your appliance estimate and your tariff, together on one page.</p>
+      </div>
+      <button class="btn btn-ghost" type="button" onclick="window.print()">Print / Save as PDF</button>
+    </header>
+
+    <div id="missing" class="notice" hidden></div>
+
+    <div class="grid three" id="topCards"></div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>Bill from past-usage forecast <small id="fcLabel"></small></h3>
+        <div id="fcBreakdown" class="breakdown"></div>
+        <p id="fcEmpty" class="muted" hidden>Run the forecast in Step 1 to see this.</p>
+      </div>
+      <div class="card">
+        <h3>Bill from appliance estimate</h3>
+        <div id="apBreakdown" class="breakdown"></div>
+        <p id="apEmpty" class="muted" hidden>Save your appliance estimate in Step 2 to see this.</p>
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>Units compared</h3>
+        <canvas id="chart" class="chart" height="300"></canvas>
+      </div>
+      <div class="card">
+        <h3>Where your electricity goes</h3>
+        <div id="topAppl"></div>
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>What this means</h3>
+        <ul id="insights" class="insights"></ul>
+      </div>
+      <div class="card">
+        <h3>Tariff in use <small><a href="tariff.html">edit</a></small></h3>
+        <div id="tariffBox" class="breakdown"></div>
+      </div>
+    </div>
+
+    <div class="page-actions">
+      <a class="btn btn-ghost" href="tariff.html">← Back: Tariff</a>
+      <a class="btn btn-primary" href="history.html">See my history →</a>
+    </div>
+  </main>
+  <div id="foot"></div>
+  <script src="js/summary.js"></script>
+</body>
+</html>
